@@ -15,3 +15,4 @@ services:
       - /docker/elasticsearch6.8/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - /docker/elasticsearch6.8/data:/usr/share/elasticsearch/data
       - /docker/elasticsearch6.8/logs:/usr/share/elasticsearch/logs
+
