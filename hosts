@@ -1,0 +1,32 @@
+
+# node(s) 所有节点列表
+[nodes]
+#10.10.10.176  ansible_ssh_user=root
+i            ansible_ssh_user=root      ansible_ssh_port=10022
+#i            ansible_ssh_user=root      ansible_ssh_port=10023
+
+# --------- Redis部署metadate ---------
+[redis-master]
+i            ansible_ssh_user=root      ansible_ssh_port=10022
+
+[redis-slave]
+#i            ansible_ssh_user=root      ansible_ssh_port=10023
+
+[redis:vars]
+# 版本（现兼容版本：6.0.X）, 若使用非兼容版本，可能会导致集群异常
+VERSION="6.0.5"
+# 部署模式：single(单例，只需配置redis-master)、cluster(集群)
+MODEL="single"
+
+# --------- Main Variables ---------------
+[all:vars]
+# 运行环境：docker
+RUNTIME="docker"
+# 适用性分析,校验部署节点资源是否满足最低要求: true、false
+APPLICABILITY="true"
+# 目标机存放二进制文件目录
+bin_dir="/opt/kube/bin"
+# 部署目录 *注：需要保证该地址是当前文件的目录路径
+#base_dir="/data/NoOps"
+base_dir="/Users/cv/item/myItem/NoOps"
+

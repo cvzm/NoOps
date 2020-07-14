@@ -1,0 +1,17 @@
+# to install docker service
+- hosts:
+  - nodes
+  roles:
+  - role: docker
+  tasks:
+  - name: 安装 ubuntu/debian基础软件
+    when: 'ansible_distribution in ["Ubuntu","Debian"]'
+    apt:
+      name:
+        - bash-completion     # bash命令补全工具，需要重新登录服务器生效
+
+  - name: 安装 CentOS/RedHat/Amazon基础软件
+    when: 'ansible_distribution in ["CentOS","RedHat","Amazon"]'
+    yum:
+      name:
+        - bash-completion     # bash命令补全工具，需要重新登录服务器生效
